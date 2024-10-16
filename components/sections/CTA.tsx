@@ -4,7 +4,11 @@ import { motion } from "framer-motion";
 import { TypewriterEffect } from "../ui/typewriter-effect";
 import ActionButton from "../common/Button";
 
-const Content = ({words}) => (
+interface ContentProps {
+  words: { text: string; className?: string }[]; // Define words as an array of objects
+}
+
+const Content: React.FC<ContentProps> = ({ words }) => (
   <section className="section max-w-4xl">
     <TypewriterEffect words={words} />
     <div className="py-8 text-center">
