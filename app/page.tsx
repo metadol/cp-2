@@ -23,8 +23,8 @@ export default function Home() {
       <Pricing />
       <Faq />
       {/* <LampDemo/> */}
-      <Cta />
-      {/* <CTASection/> */}
+      {/* <Cta /> */}
+      <CTASection/>
       <Footer />
     </div>
   );

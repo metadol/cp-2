@@ -75,8 +75,8 @@ const Cta = () => {
   ];
 
   return (
-    <Content words={words} />
-    // <Content2 />
+    // <Content words={words} />
+     <Content2 />
   );
 };
 

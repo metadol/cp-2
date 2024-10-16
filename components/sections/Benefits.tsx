@@ -43,12 +43,12 @@ const TestimonialsColumn = (props: {
 
 const Benefits = () => {
   return (
-    <section className="section">
+    <section className="section pt-0">
       <SectionHeader
         title="Transforming the traditional  cloud cost management ecosystem"
         description="Master cloud cost control by Automating Finops : Inform, Optimise, and Operate!"
       />
-      <div className="mt-10 flex max-h-[738px] justify-center gap-6 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
+      <div className="mt-10 flex max-h-[738px] justify-center gap-8 overflow-hidden px-0 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] lg:px-40">
         <TestimonialsColumn testimonials={firstColumn} duration={15} />
         <TestimonialsColumn
           testimonials={secondColumn}

@@ -16,8 +16,9 @@ const phrases = [
   "Empower Your Team to Achieve Cloud Control Excellence.",
   "Optimize Cloud Spending with Strategic Control and Clarity.",
   "Seize the Opportunity: Master Your Cloud Strategy Today.",
-  "Helping companies to take full control of their cloud cost",
+  "Helping businesses to take full control of their cloud cost",
   "Take full control of your cloud cost",
+  "Helping businesses with Total cloud cost control"
 ];
 
 const Hero = () => {
@@ -33,7 +34,7 @@ const Hero = () => {
         }}
         className="relative flex flex-col items-center justify-center gap-4 px-4"
       >
-        <section className="flex flex-1 flex-col items-center justify-center pb-[100px] pt-[100px] text-center">
+        <section className="flex flex-1 flex-col items-center justify-center pb-[100px] pt-[200px] text-center md:pt-[100px]">
           <div>
             <AnimatedShinyTextDemo />
           </div>
@@ -46,9 +47,9 @@ const Hero = () => {
               duration: 1,
               ease: "easeInOut",
             }}
-            className="animate-shimmer relative z-10 mx-auto mt-6 max-w-6xl bg-gradient-to-r from-gray-500 via-black to-gray-500 bg-clip-text text-2xl font-semibold leading-tight text-transparent md:text-4xl lg:text-7xl lg:leading-tight"
+            className="animate-shimmer relative z-10 mx-auto mt-6 max-w-6xl bg-gradient-to-r from-gray-500 via-black to-gray-500 bg-clip-text text-3xl font-semibold leading-tight text-transparent md:text-4xl lg:text-7xl lg:leading-tight"
           >
-            {phrases[12]}
+            {phrases[14]}
           </motion.h2>
 
           <motion.p

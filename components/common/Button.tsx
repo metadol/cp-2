@@ -8,7 +8,7 @@ type ButtonProps = {
   
   export default function ActionButton({ label, onClick, variant = 'primary', className = '' }: ButtonProps) {
     const baseStyles = 'py-2 px-4 rounded-md font-semibold focus:outline-none text-base';
-    const primaryStyles = 'bg-black text-white ';
+    const primaryStyles = 'bg-[#4d9fff] text-white ';
     const secondaryStyles = 'border bg-white text-grey-400';
   
     const variantStyles = variant === 'primary' ? primaryStyles : secondaryStyles;

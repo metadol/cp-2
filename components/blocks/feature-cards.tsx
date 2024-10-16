@@ -1,9 +1,9 @@
+"use client"
 import { cn } from "@/lib/utils";
 import { featuresData } from "../data/Sections";
-
+import { motion } from "framer-motion"; // Importing Framer Motion
 
 export function FeaturesSectionDemo() {
-  
   return (
     <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 py-10 md:grid-cols-2 lg:grid-cols-4">
       {featuresData.map((feature, index) => (
@@ -25,12 +25,19 @@ const Feature = ({
   index: number;
 }) => {
   return (
-    <div
+    <motion.div // Wrapping the entire card in a motion.div
       className={cn(
-        "flex flex-col lg:border-r  py-10 relative group/feature dark:border-neutral-800",
+        "flex flex-col lg:border-r py-10 relative group/feature dark:border-neutral-800",
         (index === 0 || index === 4) && "lg:border-l dark:border-neutral-800",
         index < 4 && "lg:border-b dark:border-neutral-800"
       )}
+      initial={{ opacity: 0, y: 20 }} // Initial state: invisible and moved down
+      whileInView={{ opacity: 1, y: 0 }} // Animate to visible and original position
+      transition={{
+        duration: 1, // Increased duration for smoother entrance
+        ease: [0.5, 0, 0.5, 1], // Smoother easing for gradual effect
+        delay: index * 0.15, // Staggered delay based on index
+      }}
     >
       {index < 4 && (
         <div className="pointer-events-none absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-100 to-transparent opacity-0 transition duration-200 group-hover/feature:opacity-100 dark:from-neutral-800" />
@@ -50,6 +57,6 @@ const Feature = ({
       <p className="relative z-10 max-w-xs px-10 text-sm leading-normal text-neutral-600 dark:text-neutral-300">
         {description}
       </p>
-    </div>
+    </motion.div>
   );
 };
