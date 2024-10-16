@@ -17,7 +17,7 @@ const Built = () => {
           return (
             <motion.div
               key={index}
-              className="hover-card relative flex flex-col items-start space-y-4 rounded-2xl bg-white p-8 text-left transition-all duration-200 hover:bg-gradient-to-b hover:from-neutral-100 hover:to-transparent"
+              className="hover-card relative flex flex-row items-end gap-2 space-y-4 rounded-2xl bg-white p-8 text-left transition-all duration-200 hover:bg-gradient-to-b hover:from-neutral-100 hover:to-transparent md:flex-col md:items-start md:gap-0"
               initial={{ opacity: 0 }} // Initial opacity
               whileInView={{ opacity: 1 }} // Fade to full opacity
               transition={{
