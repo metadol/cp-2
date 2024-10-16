@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 import { TypewriterEffect } from "../ui/typewriter-effect";
 import ActionButton from "../common/Button";
 
-// const Content = () => (
-//   <section className="section max-w-4xl">
-//     <TypewriterEffect words={words} />
-//     <div className="py-8 text-center">
-//       <ActionButton label="Get Started" />
-//     </div>
-//   </section>
-// );
+const Content = ({words}) => (
+  <section className="section max-w-4xl">
+    <TypewriterEffect words={words} />
+    <div className="py-8 text-center">
+      <ActionButton label="Get Started" />
+    </div>
+  </section>
+);
 
 const Content2 = () => (
   <section className="section rounded-lg bg-gradient-to-b from-neutral-100 to-transparent py-20 text-black">
@@ -71,8 +71,8 @@ const Cta = () => {
   ];
 
   return (
-    // <Content />
-    <Content2 />
+    <Content words={words} />
+    // <Content2 />
   );
 };
 

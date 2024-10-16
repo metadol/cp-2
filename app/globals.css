@@ -88,7 +88,7 @@
   }
 
   .card {
-    @apply  gap-2 flex px-6 py-[60px] border text-[#525252] border-[#222222]/10 rounded-3xl shadow-[0_7px_14px_#EAEAEA] max-w-sm w-full text-[18px];
+    @apply  gap-2 flex px-6 py-[40px] border text-[#525252] border-[#222222]/10 rounded-3xl shadow-[0_7px_14px_#EAEAEA] max-w-sm w-full text-[16px];
   }
 
   .hover-card {

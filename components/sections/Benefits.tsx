@@ -29,8 +29,9 @@ const TestimonialsColumn = (props: {
     >
       {[...new Array(2)].fill(0).map((_, index) => (
         <React.Fragment key={index}>
-          {props.testimonials.map(({ text, imageSrc, name, username }: any) => (
+          {props.testimonials.map(({ text, icon }: any) => (
             <div className="card" key={text}>
+              <div>{icon}</div>
               <div>{text}</div>
             </div>
           ))}
@@ -47,7 +48,7 @@ const Benefits = () => {
         title="Transforming the traditional  cloud cost management ecosystem"
         description="Master cloud cost control by Automating Finops : Inform, Optimise, and Operate!"
       />
-      {/* <div className="mt-10 flex max-h-[738px] justify-center gap-6 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
+      <div className="mt-10 flex max-h-[738px] justify-center gap-6 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
         <TestimonialsColumn testimonials={firstColumn} duration={15} />
         <TestimonialsColumn
           testimonials={secondColumn}
@@ -59,9 +60,9 @@ const Benefits = () => {
           className="hidden lg:block"
           duration={17}
         />
-      </div> */}
+      </div>
 
-      <MarqueeDemo />
+      {/* <MarqueeDemo /> */}
     </section>
   );
 };

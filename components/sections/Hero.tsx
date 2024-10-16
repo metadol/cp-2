@@ -48,7 +48,7 @@ const Hero = () => {
             }}
             className="animate-shimmer relative z-10 mx-auto mt-6 max-w-6xl bg-gradient-to-r from-gray-500 via-black to-gray-500 bg-clip-text text-2xl font-semibold leading-tight text-transparent md:text-4xl lg:text-7xl lg:leading-tight"
           >
-            {phrases[13]}
+            {phrases[12]}
           </motion.h2>
 
           <motion.p
