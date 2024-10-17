@@ -74,7 +74,7 @@ export const benefitsData = [
   },
   {
     icon: "📊 ",
-    text: "Comprehensive resource dashboards / leave no resource untracked.",
+    text: "Comprehensive resource dashboards.",
   },
   {
     icon: "👥 ",

@@ -25,13 +25,15 @@ const Integrations = () => {
                   ? "bg-gray-100 border-gray-200"
                   : "bg-white border-gray-200"
               }`}
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              initial={{ opacity: 0, filter: "blur(10px)" }} // Start with blur effect
+              animate={
+                isInView
+                  ? { opacity: 1, filter: "blur(0px)" }
+                  : { opacity: 0, filter: "blur(10px)" }
+              } // Remove blur when in view
               transition={{
-                type: "spring",
-                stiffness: 100,
-                damping: 20,
-                duration: 0.5,
+                duration: 0.8, // Longer duration for a smoother transition
+                ease: "easeOut", // Smooth ease-out transition
                 delay: index * 0.2, // Slight delay for each card
               }}
             >

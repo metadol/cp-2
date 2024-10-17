@@ -48,7 +48,7 @@ const Benefits = () => {
         title="Transforming the traditional  cloud cost management ecosystem"
         description="Master cloud cost control by Automating Finops : Inform, Optimise, and Operate!"
       />
-      <div className="mt-10 flex max-h-[738px] justify-center gap-8 overflow-hidden px-0 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] lg:px-40">
+      <div className="mt-10 flex max-h-[738px] justify-center gap-8 overflow-hidden px-0 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] lg:px-20">
         <TestimonialsColumn testimonials={firstColumn} duration={15} />
         <TestimonialsColumn
           testimonials={secondColumn}

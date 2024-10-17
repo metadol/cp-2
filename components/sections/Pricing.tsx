@@ -11,8 +11,12 @@ const cardVariants = {
 };
 
 const featureVariants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: 'easeOut' } },
+  hidden: { opacity: 0, y: 20 }, // Start 20px lower
+  visible: { 
+    opacity: 1, 
+    y: 0, // Move to the original position
+    transition: { duration: 0.8, ease: 'easeOut' }
+  },
 };
 
 const Pricing = () => {
