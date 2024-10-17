@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import { motion } from "framer-motion";
 import SectionHeader from "../common/SecctionHeader";
@@ -17,18 +18,27 @@ const Built = () => {
           return (
             <motion.div
               key={index}
-              className="hover-card relative flex flex-row items-end gap-2 space-y-4 rounded-2xl bg-white p-8 text-left transition-all duration-200 hover:bg-gradient-to-b hover:from-neutral-100 hover:to-transparent md:flex-col md:items-start md:gap-0"
-              initial={{ opacity: 0, filter: "blur(10px)" }} // Initial blur effect
-              whileInView={{ opacity: 1, filter: "blur(0px)" }} // Remove blur
-              transition={{
-                duration: 0.6, // Duration of the animation
-                ease: "easeOut", // Easing function for smoothness
-                delay: index * 0.1, // Staggered delay for each card
+              className="hover-card relative flex flex-row items-end gap-2 space-y-4 rounded-2xl bg-white p-8 text-left transition duration-200 hover:bg-gradient-to-b hover:from-neutral-100 hover:to-transparent md:flex-col md:items-start md:gap-0"
+              initial={{ opacity: 0, y: 20, filter: "blur(5px)" }} // Initial state: blurry and moved down
+              whileInView={{
+                opacity: 1,
+                y: 0, // Final position
+                filter: "blur(0px)", // Clear blur at the same time
               }}
-              viewport={{ once: false, amount: 0.5 }} // Trigger when 50% of the card is in view
+              transition={{
+                type: "spring", // Using spring physics for a more natural effect
+                stiffness: 80, // Adjust stiffness for a good bounce
+                damping: 20, // Adjust damping for smoothness
+                delay: index * 0.1, // Staggered delay based on index
+              }}
+              viewport={{ once: false, amount: 0.2 }} // Trigger when 20% of the card is visible
             >
               <div className="relative">
-                <IconComponent className="mb-1 text-gray-800" width={24} height={24} />
+                <IconComponent
+                  className="mb-1 text-gray-800"
+                  width={24}
+                  height={24}
+                />
               </div>
               <h3 className="text-lg font-semibold text-gray-800/90">
                 {feature.title}
