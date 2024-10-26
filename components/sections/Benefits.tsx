@@ -49,7 +49,16 @@ const Benefits = () => {
         description="Master cloud cost control by Automating Finops : Inform, Optimise, and Operate!"
       />
       <div className="mt-10 flex max-h-[738px] justify-center gap-8 overflow-hidden px-0 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] lg:px-20">
-        <TestimonialsColumn testimonials={firstColumn} duration={15} />
+        <TestimonialsColumn
+          testimonials={benefitsData}
+          duration={100}
+          className="block md:hidden"
+        />
+        <TestimonialsColumn
+          testimonials={firstColumn}
+          duration={15}
+          className="hidden md:block"
+        />
         <TestimonialsColumn
           testimonials={secondColumn}
           className="hidden md:block"

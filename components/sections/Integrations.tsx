@@ -3,6 +3,7 @@ import React from "react";
 import { motion, useInView } from "framer-motion";
 import SectionHeader from "../common/SecctionHeader";
 import { integrations } from "../data/Sections";
+import { animationSpeed, isAnimationOnce } from "@/lib/config";
 
 const Integrations = () => {
   return (
@@ -14,7 +15,7 @@ const Integrations = () => {
       <div className="grid grid-cols-1 gap-6 py-10 md:grid-cols-3">
         {integrations.map((integration, index) => {
           const ref = React.useRef(null);
-          const isInView = useInView(ref, { once: false, margin: "-50px 0px" });
+          const isInView = useInView(ref, { once: isAnimationOnce, margin: "-50px 0px" });
 
           return (
             <motion.div
@@ -32,7 +33,7 @@ const Integrations = () => {
                   : { opacity: 0, filter: "blur(10px)" }
               } // Remove blur when in view
               transition={{
-                duration: 0.8, // Longer duration for a smoother transition
+                duration: animationSpeed, // Longer duration for a smoother transition
                 ease: "easeOut", // Smooth ease-out transition
                 delay: index * 0.2, // Slight delay for each card
               }}

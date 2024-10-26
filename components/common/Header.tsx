@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import ActionButton from "./Button";
 import { navItems } from "../data/Sections";
+import Image from "next/image";
 
 interface NavItemProps {
   name: string;
@@ -30,9 +31,8 @@ const DesktopMenu: React.FC<{ isScrolled: boolean }> = ({ isScrolled }) => (
 
 const MobileMenu: React.FC<{ isMenuOpen: boolean }> = ({ isMenuOpen }) => (
   <div
-    className={`md:hidden transition-all duration-300 ease-in-out ${
-      isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-    } overflow-hidden`}
+    className={`md:hidden transition-all duration-300 ease-in-out ${isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+      } overflow-hidden`}
     id="mobile-menu"
   >
     <div className="flex flex-col space-y-1 px-2 pb-3 pt-2 sm:px-3">
@@ -73,14 +73,21 @@ export default function Navbar() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <span className="text-primary text-2xl font-bold">CloudPositive</span>
-
+          <div className="flex items-center">
+            <Image
+              src={'https://cp-site-assets.s3.us-east-1.amazonaws.com/images/cp_logo.png'}
+              alt="CloudPositive Logo"
+              width={30} // Set the desired width
+              height={30} // Set the desired height
+              className="mr-2" // Optional: margin to the right of the logo
+            />
+            <span className="text-primary text-2xl font-bold">CloudPositive</span>
+          </div>
           <DesktopMenu isScrolled={isScrolled} />
 
           <ActionButton
-            className={`hidden md:block transition-all duration-300 ease-in-out ${
-              isScrolled ? "opacity-100" : "opacity-80 hover:opacity-100"
-            }`}
+            className={`hidden md:block transition-all duration-300 ease-in-out ${isScrolled ? "opacity-100" : "opacity-80 hover:opacity-100"
+              }`}
             label="Get Demo"
           />
 

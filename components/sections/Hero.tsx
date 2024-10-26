@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { DotBackgroundDemo } from "../blocks/dot-background";
 import { AnimatedShinyTextDemo } from "../common/ShinyText";
 import ActionButton from "../common/Button";
+import { animationSpeed } from "@/lib/config";
 const phrases = [
   "Streamline Your Cloud Strategy with Complete Visibility.",
   "Empower Total Control of Your Cloud Resources.",
@@ -26,7 +27,7 @@ const Hero = () => {
     <DotBackgroundDemo>
       <motion.div
         initial={{ opacity: 0, filter: "blur(10px)" }}
-        whileInView={{ opacity: 1, filter: "blur(0px)" }}
+        animate={{ opacity: 1, filter: "blur(0px)" }} // Change to animate
         transition={{
           delay: 0.3,
           duration: 1,
@@ -41,9 +42,9 @@ const Hero = () => {
 
           <motion.h2
             initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            animate={{ opacity: 1 }} // Change to animate
             transition={{
-              delay: 0.5, // Delay for the heading
+              delay: 0.5,
               duration: 1,
               ease: "easeInOut",
             }}
@@ -54,10 +55,10 @@ const Hero = () => {
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }} // Change to animate
             transition={{
-              delay: 1, // Delay for the description to appear after the heading
-              duration: 1,
+              delay: animationSpeed,
+              duration: animationSpeed,
               ease: "easeInOut",
             }}
             className="dark:black/20 lea\ relative z-10 mx-auto mt-6 max-w-3xl text-base text-black/60 md:text-xl md:leading-normal"
@@ -69,10 +70,10 @@ const Hero = () => {
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }} // Change to animate
             transition={{
-              delay: 1.5, // Delay for the buttons to appear after the description
-              duration: 1,
+              delay: 1,
+              duration: animationSpeed,
               ease: "easeInOut",
             }}
             className="mt-8 flex flex-col gap-4 md:flex-row"
@@ -82,6 +83,7 @@ const Hero = () => {
           </motion.div>
         </section>
       </motion.div>
+
     </DotBackgroundDemo>
   );
 };

@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion';
 import SectionHeader from '../common/SecctionHeader';
 import { pricingPlans } from '../data/Sections';
 import { FaCheck } from 'react-icons/fa6';
+import { isAnimationOnce } from '@/lib/config';
 
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -30,7 +31,7 @@ const Pricing = () => {
       <div className="space-y-8 sm:gap-6 lg:grid lg:grid-cols-3 lg:space-y-0 xl:gap-10">
         {pricingPlans.map((plan, index) => {
           const cardRef = useRef(null);
-          const isCardInView = useInView(cardRef, { once: false, margin: '-50px 0px' });
+          const isCardInView = useInView(cardRef, { once: isAnimationOnce, margin: '-50px 0px' });
 
           return (
             <motion.div
@@ -53,7 +54,7 @@ const Pricing = () => {
               <ul role="list" className="mb-8 space-y-4 text-left">
                 {plan.features?.map((feature, featureIndex) => {
                   const featureRef = useRef(null);
-                  const isFeatureInView = useInView(featureRef, { once: false, margin: '-20px 0px' });
+                  const isFeatureInView = useInView(featureRef, { once: isAnimationOnce, margin: '-20px 0px' });
 
                   return (
                     <motion.li

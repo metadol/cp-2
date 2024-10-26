@@ -4,6 +4,7 @@ import SectionHeader from "../common/SecctionHeader";
 import { accordionData } from "../data/Sections";
 import { FaAngleDown } from "react-icons/fa6";
 import { motion, useInView } from "framer-motion";
+import { isAnimationOnce } from "@/lib/config";
 
 const accordionVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -27,7 +28,7 @@ const Faq = () => {
 
       {accordionData.map((item, index) => {
         const ref = useRef(null);
-        const isInView = useInView(ref, { once: false, margin: "-50px 0px" });
+        const isInView = useInView(ref, { once: isAnimationOnce, margin: "-50px 0px" });
 
         return (
           <motion.div

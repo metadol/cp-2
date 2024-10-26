@@ -1,6 +1,7 @@
 "use client"
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { animationSpeed, isAnimationOnce } from '@/lib/config';
 
 interface SectionHeaderProps {
   title: string;
@@ -9,7 +10,7 @@ interface SectionHeaderProps {
 
 const SectionHeader: React.FC<SectionHeaderProps> = ({ title, description }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, margin: '0px 0px -20% 0px' });
+  const isInView = useInView(ref, { once: isAnimationOnce, margin: '0px 0px -20% 0px' });
 
   return (
     <div ref={ref} className="my-8 text-center">
@@ -17,7 +18,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ title, description }) => 
         className="section-title"
         initial={{ opacity: 0, y: 20, filter: 'blur(5px)' }}
         animate={isInView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
+        transition={{ duration: animationSpeed, ease: 'easeOut' }}
       >
         {title}
       </motion.h2>
@@ -25,7 +26,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ title, description }) => 
         className="section-description"
         initial={{ opacity: 0, y: 20, filter: 'blur(5px)' }}
         animate={isInView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
-        transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+        transition={{ duration: animationSpeed, delay: 0.2, ease: 'easeOut' }}
       >
         {description}
       </motion.p>

@@ -20,7 +20,7 @@ const Content: React.FC<ContentProps> = ({ words }) => (
 const Content2 = () => (
   <section className="section rounded-lg bg-gradient-to-b from-neutral-100 to-transparent py-20 text-black">
     <div className="container mx-auto max-w-3xl px-4 text-center">
-      <h2 className="mb-4 text-4xl font-medium md:text-5xl">
+      <h2 className="mb-4 sm:text-4xl font-medium md:text-5xl">
         <span className="text-blue-500">Automate finops </span> and Take full
         control of your cloud cost now
       </h2>

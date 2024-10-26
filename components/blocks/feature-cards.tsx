@@ -1,7 +1,9 @@
 "use client"
 import { cn } from "@/lib/utils";
 import { featuresData } from "../data/Sections";
-import { motion } from "framer-motion"; // Importing Framer Motion
+import { motion, useInView } from "framer-motion"; // Importing Framer Motion
+import { useRef } from "react";
+import { animationSpeed, isAnimationOnce } from "@/lib/config";
 
 export function FeaturesSectionDemo() {
   return (
@@ -24,19 +26,23 @@ const Feature = ({
   icon: React.ReactNode;
   index: number;
 }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: isAnimationOnce }); // Set once to true
+
   return (
-    <motion.div // Wrapping the entire card in a motion.div
+    <motion.div
+      ref={ref} // Attach the ref to the motion div
       className={cn(
         "flex flex-col lg:border-r py-10 relative group/feature dark:border-neutral-800",
         (index === 0 || index === 4) && "lg:border-l dark:border-neutral-800",
         index < 4 && "lg:border-b dark:border-neutral-800"
       )}
       initial={{ opacity: 0, y: 20 }} // Initial state: invisible and moved down
-      whileInView={{ opacity: 1, y: 0 }} // Animate to visible and original position
+      animate={isInView ? { opacity: 1, y: 0 } : {}} // Animate only when in view
       transition={{
-        duration: 1, // Increased duration for smoother entrance
+        duration: animationSpeed, // Increased duration for smoother entrance
         ease: [0.5, 0, 0.5, 1], // Smoother easing for gradual effect
-        delay: index * 0.15, // Staggered delay based on index
+        delay: index * 0.05, // Staggered delay based on index
       }}
     >
       {index < 4 && (
@@ -60,3 +66,5 @@ const Feature = ({
     </motion.div>
   );
 };
+
+
