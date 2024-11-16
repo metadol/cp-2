@@ -45,7 +45,7 @@ const CTASection: React.FC = () => {
             animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 20, filter: "blur(10px)" }}
             transition={{ duration: 1, ease: "easeInOut", delay: 0.4 }}
           >
-            <ActionButton label="Get Started" />
+            <ActionButton label="Get Started" calendly={true} />
           </motion.div>
         </div>
       </section>

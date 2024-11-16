@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import ActionButton from "./Button";
@@ -22,7 +22,7 @@ const NavItem: React.FC<NavItemProps> = ({ name, href, isScrolled }) => (
 );
 
 const DesktopMenu: React.FC<{ isScrolled: boolean }> = ({ isScrolled }) => (
-  <div className="ml-10 hidden items-baseline space-x-4 md:flex">
+  <div className="hidden items-baseline space-x-4 md:flex">
     {navItems.map((item) => (
       <NavItem key={item.name} {...item} isScrolled={isScrolled} />
     ))}
@@ -40,7 +40,7 @@ const MobileMenu: React.FC<{ isMenuOpen: boolean }> = ({ isMenuOpen }) => (
         <NavItem key={item.name} {...item} isScrolled={true} />
       ))}
       <div className="mt-4">
-        <ActionButton className="w-full" label="Get Demo" />
+        <ActionButton className="w-full" label="Request Demo" calendly={true} />
       </div>
     </div>
   </div>
@@ -49,16 +49,12 @@ const MobileMenu: React.FC<{ isMenuOpen: boolean }> = ({ isMenuOpen }) => (
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      setIsScrolled(currentScrollY > 10);
-      setIsVisible(currentScrollY <= lastScrollY);
-      lastScrollY = currentScrollY;
+      setIsScrolled(currentScrollY > 0);
+      // Always set isVisible to true on scroll
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -68,8 +64,7 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out 
-      ${isScrolled ? "bg-background shadow-sm" : "bg-transparent"}
-      ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
+  ${isScrolled ? "bg-background shadow-sm " : "bg-background md:bg-transparent"}`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
@@ -77,18 +72,19 @@ export default function Navbar() {
             <Image
               src={'https://cp-site-assets.s3.us-east-1.amazonaws.com/images/cp_logo.png'}
               alt="CloudPositive Logo"
-              width={30} // Set the desired width
-              height={30} // Set the desired height
-              className="mr-2" // Optional: margin to the right of the logo
+              width={30}
+              height={30}
+              className="mr-2"
             />
-            <span className="text-primary text-2xl font-bold">CloudPositive</span>
+            <span className="text-primary text-2xl font-bold">Cloud Positive</span>
           </div>
           <DesktopMenu isScrolled={isScrolled} />
 
           <ActionButton
             className={`hidden md:block transition-all duration-300 ease-in-out ${isScrolled ? "opacity-100" : "opacity-80 hover:opacity-100"
               }`}
-            label="Get Demo"
+            label="Request Demo"
+            calendly={true}
           />
 
           <button

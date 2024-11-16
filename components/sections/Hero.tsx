@@ -61,7 +61,7 @@ const Hero = () => {
               duration: animationSpeed,
               ease: "easeInOut",
             }}
-            className="dark:black/20 lea\ relative z-10 mx-auto mt-6 max-w-3xl text-base text-black/60 md:text-xl md:leading-normal"
+            className="dark:black/20 lea\ relative z-10 mx-auto mt-6 max-w-4xl text-base text-black/60 md:text-xl md:leading-normal"
           >
             A completely FinOps-driven solution for cloud cost governance,
             optimization, and management. Fine-tune your cloud resources,
